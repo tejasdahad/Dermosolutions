@@ -93,6 +93,8 @@ export default function LoginPage(props) {
                         fullWidth: true
                       }}
                       inputProps={{
+                        onChange: (e) =>  onChange(e),
+                        name:"email",
                         type: "email",
                         endAdornment: (
                           <InputAdornment position="end">
@@ -108,6 +110,8 @@ export default function LoginPage(props) {
                         fullWidth: true
                       }}
                       inputProps={{
+                        onChange: (e) =>  onChange(e),
+                        name:"password",
                         type: "password",
                         endAdornment: (
                           <InputAdornment position="end">
@@ -121,7 +125,7 @@ export default function LoginPage(props) {
                     />
                   </CardBody>
                   <CardFooter className={classes.cardFooter}>
-                    <Button simple color="primary" size="lg" onSubmit={onSubmit}>
+                    <Button simple color="primary" size="lg" onClick={onSubmit}>
                       Login
                     </Button>
                   </CardFooter>

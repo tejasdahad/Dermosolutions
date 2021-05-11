@@ -88,6 +88,7 @@ const DoctorsInfo = (props) => {
       registrationNumber,
       appointments,
     };
+    console.log(doctor);
     setDoctorInfo(doctor);
     const data = {
       ...doctor,
@@ -104,8 +105,23 @@ const DoctorsInfo = (props) => {
     setCli('');
     setReg('');
     //setProfilePicture('');
-    history.push('/doctor/dashboard');
+    //history.push('/doctor/dashboard');
   };
+
+  const onChange = (e) => {
+      const { name, value} = e.target;
+      if(name=='clinicAddress'){
+          setAddress(value);
+      }else if(name=='registration'){
+          setReg(value);
+      }else if(name=='experience'){
+          setExperience(value);
+      }else if(name=='qualifications'){
+          setQualifications(value);
+      }else if(name=='fees'){
+        setFees(value);
+      }
+  }
 
   return (
     <div>
@@ -141,6 +157,8 @@ const DoctorsInfo = (props) => {
                         fullWidth: true
                       }}
                       inputProps={{
+                        onChange: (e) => onChange(e),
+                        name:"clinicAddress",
                         type: "text",
                         endAdornment: (
                           <InputAdornment position="end">
@@ -151,12 +169,32 @@ const DoctorsInfo = (props) => {
                       name="address" value={clinicAddress} onChange={(e) => setAddress(e.target.value)}
                     />
                     <CustomInput
+                      labelText="Registration Number..."
+                      id="registration"
+                      formControlProps={{
+                        fullWidth: true
+                      }}
+                      inputProps={{
+                        onChange: (e) => onChange(e),
+                        name:"registration",
+                        type: "text",
+                        endAdornment: (
+                          <InputAdornment position="end">
+                            <LocationCity className={classes.inputIconsColor} />
+                          </InputAdornment>
+                        )
+                      }}
+                      name="registration" value={registrationNumber} onChange={(e) => setReg(e.target.value)}
+                    />
+                    <CustomInput
                       labelText="Experience (No. of years)..."
                       id="experience"
                       formControlProps={{
                         fullWidth: true
                       }}
                       inputProps={{
+                        onChange: (e) => onChange(e),
+                        name:"experience",
                         type: "text",
                         endAdornment: (
                           <InputAdornment position="end">
@@ -174,6 +212,8 @@ const DoctorsInfo = (props) => {
                         fullWidth: true
                       }}
                       inputProps={{
+                        onChange: (e) => onChange(e),
+                        name:"qualifications",
                         type: "text",
                         endAdornment: (
                           <InputAdornment position="end">
@@ -191,6 +231,8 @@ const DoctorsInfo = (props) => {
                         fullWidth: true
                       }}
                       inputProps={{
+                        onChange: (e) => onChange(e),
+                        name:"fees",
                         type: "text",
                         endAdornment: (
                           <InputAdornment position="end">

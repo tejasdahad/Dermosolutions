@@ -74,6 +74,17 @@ const PersonalInfo = (props) => {
   const [imageAsFile, setImageAsFile] = useState('')
   const [imageAsUrl, setImageAsUrl] = useState(allInputs)
 
+  const onChange = (e) => {
+    const { name, value} = e.target;
+    if(name=='name'){
+        setName(value);
+    }else if(name=='phone'){
+        setNumber(value);
+    }else if(name=='city'){
+        setCity(value);
+    }
+}
+
   const onSubmit = (e) => {
     e.preventDefault();
     const personal = {
@@ -84,6 +95,7 @@ const PersonalInfo = (props) => {
       name,
       profilePic:imageAsUrl.imgUrl
     };
+    console.log(personal);
     setToggler(true);
     setPersonalInfo(personal);
     setDOB('');
@@ -129,9 +141,9 @@ const PersonalInfo = (props) => {
     var index = localStorage.getItem('active');
     localStorage.removeItem('active');
     if(index==0){
-      history.push('/patientsinfo');
-    } else if(index==1) {
       history.push('/doctorsinfo');
+    } else if(index==1) {
+      history.push('/patientsinfo');
     } else {
       setTimeout(setError('Please define role'),2000);
       setError('');
@@ -173,6 +185,8 @@ const PersonalInfo = (props) => {
                         fullWidth: true
                       }}
                       inputProps={{
+                        onChange: (e) => onChange(e),
+                        name: "name",
                         type: "text",
                         endAdornment: (
                           <InputAdornment position="end">
@@ -189,6 +203,8 @@ const PersonalInfo = (props) => {
                         fullWidth: true
                       }}
                       inputProps={{
+                        onChange: (e) => onChange(e),
+                        name: "phone",
                         type: "text",
                         endAdornment: (
                           <InputAdornment position="end">
@@ -206,6 +222,8 @@ const PersonalInfo = (props) => {
                         fullWidth: true
                       }}
                       inputProps={{
+                        onChange: (e) => onChange(e),
+                        name: "city",
                         type: "text",
                         endAdornment: (
                           <InputAdornment position="end">
