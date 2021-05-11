@@ -33,6 +33,7 @@ import SignupPage from "views/Signup/SignupPage";
 import PersonalInfo from 'views/Info/PersonalInfo';
 
 import { createBrowserHistory } from "history";
+import DoctorsInfo from 'views/Info/DoctorsInfo';
 
 var hist = createBrowserHistory();
 const store = configureStore();
@@ -86,6 +87,7 @@ useEffect(() => {
             <Route path="/sign-up" component={SignupPage} />
             <Route path="/components" component={Components} />
             <Route path="/personalinfo" component={PersonalInfo} />
+            <Route path='/doctorsinfo' component={DoctorsInfo} />
           </Switch>
         </Router>
       </div>

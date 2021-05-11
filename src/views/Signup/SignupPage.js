@@ -35,28 +35,35 @@ const Signup = (props) => {
     setCardAnimation("");
   }, 700);
   const classes = useStyles();
-  const { ...rest } = props;
-  const [newUser,setUSer] = useState({displayName:"",email:"",password:""});
-
-  const {displayName,email,password}=newUser;
-  
-  const onChange =(e) => {
-    const { name, value } = e.target;
-
-    setUSer({ ...newUser,[name]:value });
-  }
+  const { setUser,history, loadUser,...rest } = props;
+  const [email,setEmail] = useState("");
+  const [username,setUsername] = useState("");
+  const [password,setPassword] = useState("");
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    const {user} =  await auth.createUserWithEmailAndPassword(newUser.email,newUser.password);
-    const userReference = await createUserProfileDocument(user);
+    console.log(email);
+    const {user} =  await auth.createUserWithEmailAndPassword(email,password);
+    console.log(user);
+    const userReference = await createUserProfileDocument({user});
     if(userReference) {
       //loadUser(user.id);
       setUser(userReference);
       //await createUserProfileDocument(user,{ displayName:newUser.displayName });
       props.history.push('/personalinfo');
-      setUSer({displayName:"",email:"",password:""});
+      setEmail("");
+      setPassword("");
+      setUsername("");
     }
+  }
+
+  const handleChange = event => {
+    const { value } = event.target;
+    setEmail(value);
+  }
+  const handlePassChange = event => {
+    const { value } = event.target;
+    setPassword(value);
   }
 
   return (
@@ -86,7 +93,7 @@ const Signup = (props) => {
                     <h4>Sign Up</h4>
                   </CardHeader>
                   <CardBody>
-                  <CustomInput
+                  {/*<CustomInput
                       labelText="User name..."
                       id="username"
                       formControlProps={{
@@ -101,8 +108,9 @@ const Signup = (props) => {
                         )
                       }}
                       name="displayName"
-                      onChange={onChange}
-                    />
+                      value={username}
+                      onChange={e =>  setUsername(e.target.value)}
+                    />*/}
                     <CustomInput
                       labelText="Email..."
                       id="email"
@@ -110,6 +118,8 @@ const Signup = (props) => {
                         fullWidth: true
                       }}
                       inputProps={{
+                        onChange: (event) => handleChange(event),
+                        name:"email",
                         type: "email",
                         endAdornment: (
                           <InputAdornment position="end">
@@ -118,7 +128,7 @@ const Signup = (props) => {
                         )
                       }}
                       name="email"
-                      onChange={onChange}
+                      value={email}
                     />
                     <CustomInput
                       labelText="Password"
@@ -127,6 +137,7 @@ const Signup = (props) => {
                         fullWidth: true
                       }}
                       inputProps={{
+                        onChange: (event) => handlePassChange(event),
                         type: "password",
                         endAdornment: (
                           <InputAdornment position="end">
@@ -138,11 +149,14 @@ const Signup = (props) => {
                         autoComplete: "off"
                       }}
                       name="password"
-                      onChange={onChange}
+                      value={password}
+                      onChange={e =>  {
+                        e.preventDefault();
+                        setPassword(e.target.value)}}
                     />
                   </CardBody>
                   <CardFooter className={classes.cardFooter}>
-                    <Button simple color="primary" size="lg" onSubmit={onSubmit}>
+                    <Button simple color="primary" size="lg" onClick={onSubmit}>
                       Sign Up
                     </Button>
                   </CardFooter>
