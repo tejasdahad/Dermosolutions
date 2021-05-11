@@ -15,6 +15,7 @@ import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
 
 import styles from "assets/jss/material-kit-react/components/navPillsStyle.js";
+import { setActivePill } from "views/Info/PersonalInfo";
 
 const useStyles = makeStyles(styles);
 
@@ -22,10 +23,14 @@ export default function NavPills(props) {
   const [active, setActive] = React.useState(props.active);
   const handleChange = (event, active) => {
     setActive(active);
+    localStorage.setItem('active',active)
   };
   const handleChangeIndex = index => {
     setActive(index);
+    setActivePill(index);
+    // localStorage.setItem('active',index);
   };
+
   const classes = useStyles();
   const { tabs, direction, color, horizontal, alignCenter } = props;
   const flexContainerClasses = classNames({

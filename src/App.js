@@ -30,6 +30,7 @@ import LandingPage from "views/LandingPage/LandingPage.js";
 import ProfilePage from "views/ProfilePage/ProfilePage.js";
 import LoginPage from "views/LoginPage/LoginPage.js";
 import SignupPage from "views/Signup/SignupPage";
+import PersonalInfo from 'views/Info/PersonalInfo';
 
 import { createBrowserHistory } from "history";
 
@@ -84,6 +85,7 @@ useEffect(() => {
             <Route exact path="/" component={LoginPage} />
             <Route path="/sign-up" component={SignupPage} />
             <Route path="/components" component={Components} />
+            <Route path="/personalinfo" component={PersonalInfo} />
           </Switch>
         </Router>
       </div>
