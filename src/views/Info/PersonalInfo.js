@@ -1,6 +1,6 @@
 import React,{useState, useEffect, Fragment} from "react";
 import InputAdornment from "@material-ui/core/InputAdornment";
-import { FormControl, Radio, RadioGroup, FormControlLabel, FormLabel } from '@material-ui/core';
+import { FormControl, Radio, RadioGroup, FormControlLabel, FormLabel,TextField } from '@material-ui/core';
 import { setPersonalInfo } from '../../actions/info';
 import { storage } from '../../firebase/firebase';
 import { connect } from 'react-redux';
@@ -230,6 +230,19 @@ const PersonalInfo = (props) => {
                         <MenuItem value={'Female'}>Female</MenuItem>
                         <MenuItem value={'Others'}>Others</MenuItem>
                       </Select>
+                  </FormControl>
+                  <FormControl style={{paddingTop:'20px'}}>
+                    <TextField style={{minWidth:'18rem'}}
+                      id="date"
+                      label="Date of Birth"
+                      type="date"
+                      className={classes.textField}
+                      InputLabelProps={{
+                        shrink: true,
+                      }}
+                      value={dob}
+                      onChange={date => setDOB(date)}
+                    />
                   </FormControl>
                   </CardBody>
                   <CardFooter className={classes.cardFooter}>
