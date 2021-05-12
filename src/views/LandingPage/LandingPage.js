@@ -20,6 +20,7 @@ import LoginLinks from "views/LoginPage/LoginLinks";
 // Sections for this page
 import ProductSection from "./Sections/ProductSection.js";
 import TeamSection from "./Sections/TeamSection.js";
+import SectionCarousel from "./Sections/CarouselSection";
 
 const dashboardRoutes = [];
 
@@ -57,6 +58,7 @@ export default function LandingPage(props) {
       <div className={classNames(classes.main, classes.mainRaised)}>
         <div className={classes.container}>
           <ProductSection />
+          <SectionCarousel />
           <TeamSection />
         </div>
       </div>
