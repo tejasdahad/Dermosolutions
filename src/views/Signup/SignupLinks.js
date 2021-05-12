@@ -12,7 +12,7 @@ import ListItem from "@material-ui/core/ListItem";
 import Tooltip from "@material-ui/core/Tooltip";
 
 // @material-ui/icons
-import { Apps, CloudDownload, AccountCircle } from "@material-ui/icons";
+import { Apps, CloudDownload, AccountCircle, VpnKey } from "@material-ui/icons";
 
 // core components
 import CustomDropdown from "components/CustomDropdown/CustomDropdown.js";
@@ -33,7 +33,7 @@ export default function HeaderLinks(props) {
           target="_blank"
           className={classes.navLink}
         >
-          <Link style={{color:'white'}} to='/login'><AccountCircle className={classes.icons} /> Login</Link>
+          <Link style={{color:'white'}} to='/login'><VpnKey className={classes.icons} /> Login</Link>
         </Button>
       </ListItem>
     </List>

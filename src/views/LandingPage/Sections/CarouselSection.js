@@ -22,6 +22,7 @@ import ss5 from "assets/img/ss5.jpeg";
 import ss6 from "assets/img/ss6.jpeg";
 import styles from "assets/jss/material-kit-react/views/componentsSections/carouselStyle.js";
 import styles1 from "assets/jss/material-kit-react/views/landingPageSections/productStyle.js";
+import { Container, Grid } from "@material-ui/core";
 
 const useStyles = makeStyles(styles);
 const useStyles1 = makeStyles(styles1);
@@ -39,9 +40,13 @@ export default function SectionCarousel() {
   return (
     <div className={classes.section}>
       <div className={classes.container}>
-
-        <GridContainer>
-          <GridItem xs={12} sm={12} md={3}>
+        <Container maxWidth='sm'>
+        <div style={{height:"100px",lineHeight:"100px",textAlign:"center"}}>
+            <h2 style={{display:"inline-block", verticalAlign:"middle",lineHeight:"normal"}} className={classes1.title}>Have a look at SnapShots of our mobile app</h2>
+            </div>
+        </Container>
+        <Grid container justify='space-around'>
+          <Grid item xs={12} sm={12} md={3}>
             <Card carousel>
               <Carousel {...settings}>
                 <div>
@@ -78,13 +83,8 @@ export default function SectionCarousel() {
                 </div>
               </Carousel>
             </Card>
-          </GridItem>
-          <GridItem md={5}>
-            <div style={{height:"100px",lineHeight:"100px",textAlign:"center"}}>
-            <h2 style={{display:"inline-block", verticalAlign:"middle",lineHeight:"normal"}} className={classes1.title}>Take a look at our mobile app</h2>
-            </div>
-        </GridItem>
-          <GridItem xs={12} sm={12} md={3}>
+          </Grid>
+          <Grid item xs={12} sm={12} md={3}>
             <Card carousel>
               <Carousel {...settings}>
                 <div>
@@ -121,8 +121,8 @@ export default function SectionCarousel() {
                 </div>
               </Carousel>
             </Card>
-          </GridItem>
-        </GridContainer>
+          </Grid>
+        </Grid>
       </div>
     </div>
   );
