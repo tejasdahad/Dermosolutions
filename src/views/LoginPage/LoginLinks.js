@@ -33,7 +33,7 @@ export default function HeaderLinks(props) {
           target="_blank"
           className={classes.navLink}
         >
-          <Link to="/sign-up"><AccountCircle className={classes.icons} /> Sign Up</Link>
+          <Link to="/sign-up" style={{color:'white'}}><AccountCircle className={classes.icons} /> Sign Up</Link>
         </Button>
       </ListItem>
     </List>

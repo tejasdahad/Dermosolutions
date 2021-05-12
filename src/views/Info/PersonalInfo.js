@@ -1,33 +1,16 @@
 import React,{useState, useEffect, Fragment} from "react";
-// @material-ui/core components
-import { makeStyles } from "@material-ui/core/styles";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import { FormControl, Radio, RadioGroup, FormControlLabel, FormLabel } from '@material-ui/core';
-import Icon from "@material-ui/core/Icon";
 import { setPersonalInfo } from '../../actions/info';
 import { storage } from '../../firebase/firebase';
 import { connect } from 'react-redux';
-import { loadUser,setUser } from '../../actions/auth';
-import { Redirect } from "react-router-dom";
 import 'date-fns';
-import Dashboard from "@material-ui/icons/Dashboard";
-import Schedule from "@material-ui/icons/Schedule";
-import List from "@material-ui/icons/List";
 import NavPills from "components/NavPills/NavPills.js";
-import DateFnsUtils from '@date-io/date-fns';
 import SnackbarContent from '../../components/Snackbar/SnackbarContent';
-import CustomLinearProgress from '../../components/CustomLinearProgress/CustomLinearProgress';
+import { makeStyles } from "@material-ui/core/styles";
 import LinearProgressWithLabel from '../../components/LinearProgress/LinearProgress';
-// @material-ui/icons
-import Email from "@material-ui/icons/Email";
-import {
-    KeyboardDatePicker,
-    MuiPickersUtilsProvider
-  } from '@material-ui/pickers';
 import People from "@material-ui/icons/People";
-// core components
 import Header from "components/Header/Header.js";
-import Footer from "components/Footer/Footer.js";
 import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
 import Button from "components/CustomButtons/Button.js";
@@ -36,15 +19,16 @@ import CardBody from "components/Card/CardBody.js";
 import CardHeader from "components/Card/CardHeader.js";
 import CardFooter from "components/Card/CardFooter.js";
 import CustomInput from "components/CustomInput/CustomInput.js";
-
+import InputLabel from '@material-ui/core/InputLabel';
+import MenuItem from '@material-ui/core/MenuItem';
+import Select from '@material-ui/core/Select';
+import image from "assets/img/bg7.jpg";
+import { DateRange, LocalHospital, LocationCity, PersonPinCircleRounded, Phone } from "@material-ui/icons";
+import DateFnsUtils from '@date-io/date-fns';
 import styles from "assets/jss/material-kit-react/views/loginPage.js";
 
-import image from "assets/img/bg7.jpg";
-import { LocalHospital, LocationCity, PersonPinCircleOutlined, PersonPinCircleRounded, Phone } from "@material-ui/icons";
 
 const useStyles = makeStyles(styles);
-
-
 var role = 'Doctor';
 export const setActivePill = (index) => {
     if(index==0){
@@ -234,29 +218,19 @@ const PersonalInfo = (props) => {
                       name="city" value={city}
                       onChange={(e) => setCity(e.target.value)}
                     />
-                    <FormControl component="fieldset">
-                        <FormLabel component="legend">Gender</FormLabel>
-                        <RadioGroup row aria-label="gender" name="gender1" value={gender} onChange={e => setGender(e.target.value)}>
-                            <FormControlLabel value="female" control={<Radio />} label="Female"  />
-                            <FormControlLabel value="male" control={<Radio />} label="Male" />
-                            <FormControlLabel value="other" control={<Radio />} label="Other"  />
-                        </RadioGroup>
-                    </FormControl>
-                    {/*<MuiPickersUtilsProvider utils={DateFnsUtils}>
-                    <KeyboardDatePicker
-                    disableToolbar
-                    variant="inline"
-                    format="MM/dd/yyyy"
-                    margin="normal"
-                    id="date-picker-inline"
-                    label="Date picker inline"
-                    value={dob}
-                    onChange={date =>  setDOB(date)}
-                    KeyboardButtonProps={{
-                        'aria-label': 'change date',
-                    }}
-                    />
-                </MuiPickersUtilsProvider>*/}
+                    <FormControl component="fieldset" style={{minWidth: '18rem'}} >
+                      <InputLabel id="demo-simple-select-label">Gender</InputLabel>
+                      <Select
+                        labelId="demo-simple-select-label"
+                        id="demo-simple-select"
+                        value={gender}
+                        onChange={e => setGender(e.target.value)}
+                      >
+                        <MenuItem value={'Male'}>Male</MenuItem>
+                        <MenuItem value={'Female'}>Female</MenuItem>
+                        <MenuItem value={'Others'}>Others</MenuItem>
+                      </Select>
+                  </FormControl>
                   </CardBody>
                   <CardFooter className={classes.cardFooter}>
                     <Button simple color="primary" size="lg" onClick={onSubmit}>
