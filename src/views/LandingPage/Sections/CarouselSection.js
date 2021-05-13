@@ -52,9 +52,8 @@ export default function SectionCarousel() {
                 <div>
                   <img src={ss1} alt="First slide" className="slick-image" width="10%" />
                   <div className="slick-caption">
-                    <h4>
-                      <LocationOn className="slick-icons" />
-                      Yellowstone National Park, United States
+                    <h4 style={{color:"black"}}>
+                      Skin Disease Prediction screen
                     </h4>
                   </div>
                 </div>
@@ -66,18 +65,16 @@ export default function SectionCarousel() {
                     width="10%"
                   />
                   <div className="slick-caption">
-                    <h4>
-                      <LocationOn className="slick-icons" />
-                      Somewhere Beyond, United States
+                    <h4 style={{color:"black"}}>
+                      Booking Appointment screen
                     </h4>
                   </div>
                 </div>
                 <div>
                   <img src={ss3} alt="Third slide" className="slick-image"  width="10%" />
                   <div className="slick-caption">
-                    <h4>
-                      <LocationOn className="slick-icons" />
-                      Yellowstone National Park, United States
+                    <h4 style={{color:"black"}}>
+                      List of doctors in a particular area
                     </h4>
                   </div>
                 </div>
@@ -90,9 +87,8 @@ export default function SectionCarousel() {
                 <div>
                   <img src={ss4} alt="First slide" className="slick-image" width="10%" />
                   <div className="slick-caption">
-                    <h4>
-                      <LocationOn className="slick-icons" />
-                      Yellowstone National Park, United States
+                    <h4 style={{color:"black"}}>
+                      Doctor consult screen
                     </h4>
                   </div>
                 </div>
@@ -104,18 +100,16 @@ export default function SectionCarousel() {
                     width="10%"
                   />
                   <div className="slick-caption">
-                    <h4>
-                      <LocationOn className="slick-icons" />
-                      Somewhere Beyond, United States
+                    <h4 style={{color:"black"}}>
+                      Detailed form for reporting to doctor
                     </h4>
                   </div>
                 </div>
                 <div>
                   <img src={ss6} alt="Third slide" className="slick-image"  width="10%" />
                   <div className="slick-caption">
-                    <h4>
-                      <LocationOn className="slick-icons" />
-                      Yellowstone National Park, United States
+                    <h4 style={{color:"black"}}>
+                      Taking medication from the doctor
                     </h4>
                   </div>
                 </div>
