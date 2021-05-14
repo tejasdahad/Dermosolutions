@@ -30,7 +30,6 @@ export default function HeaderLinks(props) {
         <Button
           href="/sign-up"
           color="transparent"
-          target="_blank"
           className={classes.navLink}
         >
           <Link to="/sign-up" style={{color:'white'}}><AccountCircle className={classes.icons} /> Sign Up</Link>

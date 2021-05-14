@@ -2,30 +2,12 @@ import React,{useState, useEffect, Fragment} from "react";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 import InputAdornment from "@material-ui/core/InputAdornment";
-import { FormControl, Radio, RadioGroup, FormControlLabel, FormLabel, TextField } from '@material-ui/core';
-import Icon from "@material-ui/core/Icon";
-import { MDBInput } from 'mdbreact';
-
-import { setPersonalInfo } from '../../actions/info';
-import { storage } from '../../firebase/firebase';
+import { TextField } from '@material-ui/core';
 import { connect } from 'react-redux';
-import { loadUser,setUser } from '../../actions/auth';
-import { Redirect } from "react-router-dom";
 import 'date-fns';
-import Dashboard from "@material-ui/icons/Dashboard";
 import Schedule from "@material-ui/icons/Schedule";
-import List from "@material-ui/icons/List";
-import NavPills from "components/NavPills/NavPills.js";
-import DateFnsUtils from '@date-io/date-fns';
-import SnackbarContent from '../../components/Snackbar/SnackbarContent';
-import CustomLinearProgress from '../../components/CustomLinearProgress/CustomLinearProgress';
 import LinearProgressWithLabel from '../../components/LinearProgress/LinearProgress';
 // @material-ui/icons
-import Email from "@material-ui/icons/Email";
-import {
-    KeyboardDatePicker,
-    MuiPickersUtilsProvider
-  } from '@material-ui/pickers';
 import People from "@material-ui/icons/People";
 // core components
 import Header from "components/Header/Header.js";

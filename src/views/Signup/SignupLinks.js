@@ -30,7 +30,6 @@ export default function HeaderLinks(props) {
         <Button
           href="/login"
           color="transparent"
-          target="_blank"
           className={classes.navLink}
         >
           <Link style={{color:'white'}} to='/login'><VpnKey className={classes.icons} /> Login</Link>
