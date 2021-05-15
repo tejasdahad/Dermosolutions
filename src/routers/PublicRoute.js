@@ -14,7 +14,7 @@ export const PublicRoute = ({
                 <Component {...props} />
             </div>
         ) : (
-            (user) && (user.role=="patient" ? <Redirect to='/patient-dashboard' />:<Redirect to='/doctor/dashboard' />)
+            (user) && (user.role=="patient" ? <Redirect to='/patient-dashboard' />:<Redirect to='/doctor-dashboard' />)
             
         )
     )} />

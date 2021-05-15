@@ -36,6 +36,7 @@ import { createBrowserHistory } from "history";
 import DoctorsInfo from 'views/Info/DoctorsInfo';
 import PatientsInfo from 'views/Info/PatientsInfo';
 import PatientDashboard from 'views/Dashboard/patientDashboard';
+import DoctorDashboard from 'views/Dashboard/doctorsDashboard';
 var hist = createBrowserHistory();
 const store = configureStore();
 
@@ -92,6 +93,7 @@ useEffect(() => {
             <PrivateRouter path='/doctorsinfo' component={DoctorsInfo} />
             <PrivateRouter path='/patientsinfo' component={PatientsInfo} />
             <PrivateRouter path='/patient-dashboard' component={PatientDashboard} />
+            <PrivateRouter path='/doctor-dashboard' component={DoctorDashboard} />
           </Switch>
         </Router>
       </div>

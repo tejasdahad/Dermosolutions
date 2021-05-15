@@ -10,8 +10,9 @@ import { makeStyles } from "@material-ui/core/styles";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import Tooltip from "@material-ui/core/Tooltip";
-
+import {auth} from "../../firebase/firebase";
 // @material-ui/icons
+import {connect} from 'react-redux';
 import { Apps, CloudDownload, AccountCircle, VpnKeyOutlined, VpnKey } from "@material-ui/icons";
 
 // core components
@@ -21,7 +22,7 @@ import styles from "assets/jss/material-kit-react/components/headerLinksStyle.js
 
 const useStyles = makeStyles(styles);
 
-export default function HeaderLinks(props) {
+const HeaderLinks = (props) => {
   const classes = useStyles();
   return (
     <List className={classes.list}>
@@ -43,6 +44,25 @@ export default function HeaderLinks(props) {
           <Link to="/login" style={{color:'white'}}><VpnKey className={classes.icons} />Login</Link>
         </Button>
       </ListItem>
+      <ListItem className={classes.listItem}>
+        <Button
+          href="/logout"
+          color="transparent"
+          className={classes.navLink}
+          onClick={(e) => {
+            e.preventDefault();
+            auth.signOut();
+            window.location.reload(true);
+          }}
+        >
+          <Link to="/logout" style={{color:'white'}}><VpnKey className={classes.icons} />Logout</Link>
+        </Button>
+      </ListItem>
     </List>
   );
 }
+const mapStateToProps = (state) => ({
+  user: state.auth.user,
+});
+
+export default connect(mapStateToProps)(HeaderLinks);

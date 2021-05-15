@@ -43,14 +43,14 @@ export default function LandingPage(props) {
         }}
         {...rest}
       />
-      {/* <Parallax filter image={require("assets/img/dermo-dashboard.jpg")}>
+      <Parallax filter image={require("assets/img/dermo-dashboard.jpg")}>
         <div className={classes.container}>
           <GridContainer>
             <GridItem xs={12} sm={12} md={6}>
             </GridItem>
           </GridContainer>
         </div>
-      </Parallax> */}
+      </Parallax>
     </div>
   );
 }
