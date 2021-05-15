@@ -7,8 +7,8 @@ import { Provider } from 'react-redux';
 import 'bootstrap/dist/css/bootstrap.min.css';
 // import Signup from './sign-up/Signup';
 // import Userinfo from './user-info/Userinfo';
-// import PrivateRouter from './routers/PrivateRoute';
-// import PublicRouter from './routers/PublicRoute';
+import PrivateRouter from './routers/PrivateRoute';
+import PublicRouter from './routers/PublicRoute';
 // import ImageTest from './components/layout/Test';
 import { auth, createUserProfileDocument } from './firebase/firebase';
 // import DashboardPatient from './components/layout/DashboardPatient';
@@ -83,15 +83,15 @@ useEffect(() => {
       <div className='App'>
         <Router history={hist}>
           <Switch>
-            <Route path="/" component={LandingPage} exact />
-            <Route path="/profile-page" component={ProfilePage} />
-            <Route exact path="/login" component={LoginPage} />
-            <Route path="/sign-up" component={SignupPage} />
-            <Route path="/components" component={Components} />
-            <Route path="/personalinfo" component={PersonalInfo} />
-            <Route path='/doctorsinfo' component={DoctorsInfo} />
-            <Route path='/patientsinfo' component={PatientsInfo} />
-            <Route path='/patient-dashboard' component={PatientDashboard} />
+            <PublicRouter path="/" component={LandingPage} exact />
+            <PrivateRouter path="/profile-page" component={ProfilePage} />
+            <PublicRouter exact path="/login" component={LoginPage} />
+            <PublicRouter path="/sign-up" component={SignupPage} />
+            <PublicRouter path="/components" component={Components} />
+            <PrivateRouter path="/personalinfo" component={PersonalInfo} />
+            <PrivateRouter path='/doctorsinfo' component={DoctorsInfo} />
+            <PrivateRouter path='/patientsinfo' component={PatientsInfo} />
+            <PrivateRouter path='/patient-dashboard' component={PatientDashboard} />
           </Switch>
         </Router>
       </div>
@@ -105,9 +105,6 @@ auth.onAuthStateChanged(async (user) => {
     const userRefere = await createUserProfileDocument(user);
     console.log(userRefere);
     store.dispatch(setUser(userRefere));
-    if(userRefere.role=='patient'){
-      hist.push('/dashboard');
-    }
   }
 });
 
