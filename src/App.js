@@ -91,8 +91,7 @@ useEffect(() => {
             <Route path="/personalinfo" component={PersonalInfo} />
             <Route path='/doctorsinfo' component={DoctorsInfo} />
             <Route path='/patientsinfo' component={PatientsInfo} />
-            <Route path='/dashboard' component={PatientDashboard} />
-            {/* <Route path='/' component={PatientDashboard} /> */}
+            <Route path='/patient-dashboard' component={PatientDashboard} />
           </Switch>
         </Router>
       </div>
