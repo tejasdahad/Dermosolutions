@@ -53,7 +53,8 @@ const App = () => {
         const user = await createUserProfileDocument(userAuth);
         //setUser(user);
         setCurrentUser(user);
-        console.log(currentUser);
+        console.log(user);
+        
       }
       setCurrentUser(userAuth);
     });
@@ -90,6 +91,7 @@ useEffect(() => {
             <Route path="/personalinfo" component={PersonalInfo} />
             <Route path='/doctorsinfo' component={DoctorsInfo} />
             <Route path='/patientsinfo' component={PatientsInfo} />
+            <Route path='/dashboard' component={PatientDashboard} />
             {/* <Route path='/' component={PatientDashboard} /> */}
           </Switch>
         </Router>
@@ -104,6 +106,9 @@ auth.onAuthStateChanged(async (user) => {
     const userRefere = await createUserProfileDocument(user);
     console.log(userRefere);
     store.dispatch(setUser(userRefere));
+    if(userRefere.role=='patient'){
+      hist.push('/dashboard');
+    }
   }
 });
 
